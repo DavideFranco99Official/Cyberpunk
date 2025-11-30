@@ -113,7 +113,7 @@ guessInputs.forEach((input, index) => {
     });
 });
 
-// --- OROLOGIO FOOTER (Rimane invariato) ---
+// OROLOGIO FOOTER (Rimane invariato)
 
 const updateTime = () => {
     const now = new Date();
@@ -124,4 +124,5 @@ const updateTime = () => {
 };
 
 setInterval(updateTime, 1000);
+
 updateTime();
