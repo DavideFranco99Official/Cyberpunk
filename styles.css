@@ -1,0 +1,199 @@
+:root {
+    --neon-green: #00ff41;
+    --dark-bg: #0d0d0d;
+    --accent-blue: #00aaff;
+    --terminal-font: 'Monaco', 'Lucida Console', monospace;
+}
+
+/* * Stile Globale e Sfondo Cyberpunk 
+*/
+body {
+    background-color: var(--dark-bg);
+    /* Effetto griglia futuristica di sfondo */
+    background-image: linear-gradient(0deg, transparent 95%, rgba(0, 255, 65, 0.1) 100%), 
+                      linear-gradient(90deg, transparent 95%, rgba(0, 255, 65, 0.1) 100%);
+    background-size: 50px 50px;
+    color: var(--neon-green);
+    font-family: var(--terminal-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.terminal-container {
+    width: 100%;
+    max-width: 900px;
+    border: 3px solid var(--neon-green);
+    box-shadow: 0 0 20px var(--neon-green), inset 0 0 10px var(--neon-green);
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.75); /* Sfondo leggermente trasparente */
+    border-radius: 5px;
+}
+
+/* * Effetto Glitch per il Titolo 
+*/
+.glitch {
+    font-size: 3.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--neon-green);
+    text-shadow: 
+        0 0 5px var(--neon-green),
+        0 0 10px var(--neon-green),
+        0 0 20px rgba(0, 255, 65, 0.5);
+    position: relative;
+    /* Animazione Glitch */
+    animation: glitch-anim 2s infinite alternate;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-shadow: none;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--accent-blue);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-before 3s infinite alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #ff00c1; /* Colore magenta per l'effetto */
+    clip: rect(85px, 450px, 100px, 0);
+    animation: glitch-anim-after 4s infinite alternate;
+}
+
+@keyframes glitch-anim {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+@keyframes glitch-anim-before {
+    0% { clip: rect(20px, 450px, 30px, 0); }
+    50% { clip: rect(50px, 450px, 60px, 0); }
+    100% { clip: rect(20px, 450px, 30px, 0); }
+}
+
+@keyframes glitch-anim-after {
+    0% { clip: rect(80px, 450px, 90px, 0); }
+    50% { clip: rect(30px, 450px, 40px, 0); }
+    100% { clip: rect(80px, 450px, 90px, 0); }
+}
+
+/* * Stile Minigioco 
+*/
+.game-container {
+    border: 1px solid var(--accent-blue);
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 0 10px var(--accent-blue);
+}
+
+.game-container h2 {
+    color: var(--accent-blue);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.input-area input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    box-shadow: 0 0 5px var(--neon-green);
+    -moz-appearance: textfield; /* Nasconde le frecce su Firefox */
+}
+
+/* Nasconde le frecce su Chrome/Safari */
+.input-area input::-webkit-outer-spin-button,
+.input-area input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.neon-button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    font-family: var(--terminal-font);
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 10px var(--neon-green);
+    transition: all 0.2s;
+    margin-left: 15px;
+}
+
+.neon-button:hover {
+    background-color: var(--neon-green);
+    color: var(--dark-bg);
+    box-shadow: 0 0 20px var(--neon-green);
+}
+
+.message {
+    margin-top: 15px;
+    font-size: 1.1em;
+    min-height: 20px;
+}
+
+.attempts-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    border-top: 1px dashed var(--accent-blue);
+    padding-top: 10px;
+    max-height: 200px;
+    overflow-y: auto; /* Scroll per troppi tentativi */
+}
+
+.attempts-list li {
+    padding: 5px 0;
+    border-bottom: 1px dotted rgba(0, 255, 65, 0.1);
+}
+
+.correct {
+    color: var(--neon-green);
+    font-weight: bold;
+}
+
+.misplaced {
+    color: yellow;
+}
+
+.incorrect {
+    color: red;
+}
+
+/* * Stile Footer 
+*/
+.footer-text {
+    text-align: right;
+    font-size: 0.8em;
+    margin-top: 30px;
+    color: rgba(0, 255, 65, 0.7);
+}
+
+#time-display {
+    color: var(--accent-blue);
+    text-shadow: 0 0 5px var(--accent-blue);
+}

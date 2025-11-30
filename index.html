@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Terminal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <h1 class="glitch" data-text="WELCOME TO THE CYBERPUNK">WELCOME TO THE CYBERPUNK</h1>
+        
+        <div class="game-container">
+            <h2>> CYBER-HACK v1.0 [GUESS THE CODE]</h2>
+            <p>CRACK THE 3-DIGIT CODE. (HINT: DIGITS 1-9)</p>
+            
+            <div class="input-area">
+                <input type="number" id="guess1" min="1" max="9" maxlength="1" required>
+                <input type="number" id="guess2" min="1" max="9" maxlength="1" required>
+                <input type="number" id="guess3" min="1" max="9" maxlength="1" required>
+                <button id="submit-guess" class="neon-button">EXECUTE HACK</button>
+            </div>
+            
+            <div id="message" class="message"></div>
+            
+            <ul id="attempts-list" class="attempts-list">
+                </ul>
+        </div>
+
+        <p class="footer-text">> STATUS: ONLINE | <span id="time-display">00:00:00</span></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
